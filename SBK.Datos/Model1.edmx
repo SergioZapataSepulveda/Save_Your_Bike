@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SaveYourBikeModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="SaveYourBikeModelStoreContainer">
+          <EntitySet Name="Registro" EntityType="SaveYourBikeModel.Store.Registro" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuario" EntityType="SaveYourBikeModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="Registro_FK" Association="SaveYourBikeModel.Store.Registro_FK">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Registro" EntitySet="Registro" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Registro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id_Usuario" Type="int" Nullable="false" />
+          <Property Name="Fecha" Type="date" Nullable="false" />
+          <Property Name="HoraEntrada" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="HoraSalida" Type="nvarchar" Nullable="false" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="User" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Pass" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="Rut" Type="nvarchar" Nullable="false" MaxLength="12" />
+          <Property Name="Nombres" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Apellidos" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Correo" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Tipo" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="Edad" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="Registro_FK">
+          <End Role="Usuario" Type="SaveYourBikeModel.Store.Usuario" Multiplicity="1" />
+          <End Role="Registro" Type="SaveYourBikeModel.Store.Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Registro">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SaveYourBikeModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="SaveYourBikeEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Registro" EntityType="SaveYourBikeModel.Registro" />
+          <EntitySet Name="Usuario" EntityType="SaveYourBikeModel.Usuario" />
+          <AssociationSet Name="Registro_FK" Association="SaveYourBikeModel.Registro_FK">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Registro" EntitySet="Registro" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Registro">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id_Usuario" Type="Int32" Nullable="false" />
+          <Property Name="Fecha" Type="DateTime" Nullable="false" />
+          <Property Name="HoraEntrada" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="HoraSalida" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Usuario" Relationship="SaveYourBikeModel.Registro_FK" FromRole="Registro" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="User" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Pass" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="false" />
+          <Property Name="Rut" Type="String" Nullable="false" MaxLength="12" Unicode="true" FixedLength="false" />
+          <Property Name="Nombres" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Correo" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Tipo" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <Property Name="Edad" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Registro" Relationship="SaveYourBikeModel.Registro_FK" FromRole="Usuario" ToRole="Registro" />
+        </EntityType>
+        <Association Name="Registro_FK">
+          <End Role="Usuario" Type="SaveYourBikeModel.Usuario" Multiplicity="1" />
+          <End Role="Registro" Type="SaveYourBikeModel.Registro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Registro">
+              <PropertyRef Name="Id_Usuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SaveYourBikeModelStoreContainer" CdmEntityContainer="SaveYourBikeEntities">
+          <EntitySetMapping Name="Registro">
+            <EntityTypeMapping TypeName="SaveYourBikeModel.Registro">
+              <MappingFragment StoreEntitySet="Registro">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Id_Usuario" ColumnName="Id_Usuario" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="HoraEntrada" ColumnName="HoraEntrada" />
+                <ScalarProperty Name="HoraSalida" ColumnName="HoraSalida" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="SaveYourBikeModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="User" ColumnName="User" />
+                <ScalarProperty Name="Pass" ColumnName="Pass" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Correo" ColumnName="Correo" />
+                <ScalarProperty Name="Tipo" ColumnName="Tipo" />
+                <ScalarProperty Name="Edad" ColumnName="Edad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model1">
+        <EntityTypeShape EntityType="SaveYourBikeModel.Registro" Width="1.5" PointX="3" PointY="1.375" Height="2.1725878906249996" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaveYourBikeModel.Usuario" Width="1.5" PointX="0.75" PointY="1" Height="2.9417936197916656" IsExpanded="true" />
+        <AssociationConnector Association="SaveYourBikeModel.Registro_FK" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="2.4612939453125" />
+          <ConnectorPoint PointX="3" PointY="2.4612939453125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

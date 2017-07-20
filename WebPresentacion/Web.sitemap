@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="Index.aspx"
+               title="Inicio"
+               description="">
+               <siteMapNode url="ComoFunciona.aspx"
+                            title="Como Funciona"
+                            description="" />
+               <siteMapNode url="Sedes.aspx"
+                            title="Sedes"
+                            description="" />
+               <siteMapNode url="Equipo.aspx"
+                            title="Equipo"
+                            description="" />
+               <siteMapNode url="Estadisticas.aspx"
+                            title="Estadisticas"
+                            description="" />
+               <siteMapNode url="Maestro.aspx"
+                            title="Maestro"
+                            description="" />
+               <siteMapNode url="Registro.aspx"
+                            title="Registro"
+                            description="" >
+                            <siteMapNode url="ModRegistro.aspx"
+                                        title="Modificar Registro"
+                                        description="" />
+              </siteMapNode>
+              <siteMapNode url="Contacto.aspx"
+                           title="Contacto"
+                           description="" />
+  </siteMapNode>
+</siteMap>

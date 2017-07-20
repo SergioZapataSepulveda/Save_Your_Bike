@@ -1,0 +1,125 @@
+﻿body 
+{
+    
+}
+
+
+#Menu{
+ padding: 1em;
+}
+
+#Buscar
+{
+  margin-left: 800px;  
+  background-color: #8BC942;
+    }
+
+
+#Ruta{
+    
+    background-color: Black;
+    color: White;
+    height: 35px;
+    width: 400px;
+    margin-left: 130px;
+    margin-top: -195px;
+    text-align: center;
+    vertical-align: sub; 
+}
+
+
+#FondoNombre
+{
+    background-color: black;
+    height: 22px;
+    margin: 2em 20%;
+}
+
+
+#Parrafos{
+   margin-top: -50px; 
+   margin-left: -50px; 
+    }
+#Parrafos2{
+   margin-top: -250px; 
+   margin-left: -50px; 
+   text-align: right;
+    }    
+
+#Titulo{
+margin-top: 160px; 
+margin-left: 180px;
+}
+
+
+#TituloRegistro{
+margin-top: 180px; 
+margin-left: 180px;
+}
+
+
+.Titulo
+{
+    color: #8BC942;
+    font-size: 22px;
+    font-weight: bold;  
+    font-family: Arial; 
+    
+    }
+
+.Puntos
+{
+    color: Gray;
+    font-size: 14px; 
+    font-family: Arial; 
+}
+
+#Puntos2
+{
+    color: Gray;
+    font-size: 15px; 
+    font-family: Arial; 
+    text-align:right;
+    margin-top: -200px;
+    margin-left: 160px;
+    width: 300px;
+    
+}
+
+
+
+#lblFooter{
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    height: 35px;
+    box-shadow: 2px 2px 15px 0 #555;
+    padding: 11px;
+    background-color: #8BC942;
+}
+
+#piedepaginaTexto {
+    padding: 1em 3em;
+    margin: 2em 20%;
+    color: White; 
+    position: absolute;
+    bottom: -20px;
+    font-family: Arial Black; 
+    font-size:13px; 
+}
+
+#piedepaginaImagenes {
+    padding: 1em 3em;
+    margin: 2em 2s0%;
+    position: absolute;
+    margin-left: 630px;
+    bottom: 0;
+    align-items: center;;
+}
+
+
+
+
+#Image2{  
+    margin-top: -80
+}
